@@ -4,144 +4,146 @@
 
 # RepoShelf
 
-**Панель локальных репозиториев: Git-статус, последние коммиты и запуск проектов с логами в одном окне**
+**A dashboard for local repositories: Git status, latest commits, and project commands with logs in one window**
 
 ![Tauri](https://img.shields.io/badge/Tauri-2-24C8D8?style=flat-square&logo=tauri&logoColor=white)
 ![Rust](https://img.shields.io/badge/Rust-2021-DEA584?style=flat-square&logo=rust&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
+[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
+
 </div>
 
 ---
 
-## Обзор
+## Overview
 
-RepoShelf сканирует выбранную папку и собирает локальные Git-репозитории на одной панели
+RepoShelf scans a folder and brings your local Git repositories together in one dashboard
 
-Сразу видно, где остались изменения, какая ветка открыта и какой коммит был последним. Для каждого проекта можно сохранить команду запуска, открыть редактор и посмотреть вывод процесса
+See which projects have uncommitted changes, which branch is checked out, and what the latest commit was. Save a launch command for each project, open your editor, and view process output
 
-Приложение работает локально, не требует аккаунта и не отправляет содержимое репозиториев на сервер
+The app runs locally, requires no account, and does not send repository contents to a server
 
 ---
 
-## Возможности
+## Features
 
-| Возможность | Подробности |
+| Feature | Details |
 |---|---|
-| Список проектов | Поиск репозиториев в выбранной папке и вложенных директориях до 5 уровней |
-| Git-статус | Текущая ветка, изменённые и новые файлы, количество коммитов впереди и позади upstream |
-| Просмотр diff | Подсветка добавленных и удалённых строк, номера строк, отдельный просмотр индекса и рабочей папки |
-| Последний коммит | Сообщение, автор, короткий хеш и время |
-| Быстрый поиск | По названию, пути или ветке, сочетание `⌘ K` / `Ctrl K` |
-| Фильтры | Все проекты, с изменениями, недавно открытые, запущенные |
-| Редакторы | VS Code, Cursor, Zed и IntelliJ IDEA через команды в PATH |
-| Собственные команды | Отдельная команда запуска для каждого репозитория |
-| Команды проекта | Выбор скриптов package.json с учётом npm, pnpm, Yarn и Bun, команды Cargo и бинарные цели |
-| Логи процессов | stdout и stderr, последние 2000 записей на проект, очистка вывода |
-| Фоновое обновление | Наблюдение за файловой системой с задержкой обновления 900 мс |
-| Локальные настройки | Рабочая папка, редактор, команды и время открытия сохраняются между запусками |
+| Project list | Discover repositories in the selected folder and nested directories up to 5 levels deep |
+| Git status | Current branch, changed and untracked files, commits ahead of and behind the upstream branch |
+| Diff viewer | Highlighted additions and deletions, line numbers, separate index and working tree views |
+| Latest commit | Message, author, short hash, and time |
+| Quick search | Search by name, path, or branch with `⌘ K` / `Ctrl K` |
+| Filters | All projects, changed, recently opened, and running |
+| Editors | VS Code, Cursor, Zed, and IntelliJ IDEA through commands in PATH |
+| Custom commands | A saved launch command for each repository |
+| Project commands | Detect package.json scripts for npm, pnpm, Yarn, and Bun, plus Cargo commands and binary targets |
+| Process logs | stdout and stderr, the latest 2000 entries per project, and a clear button |
+| Background updates | File system watching with a 900 ms debounce |
+| Local settings | Working folder, editor, commands, and opening history persist between sessions |
 
 ---
 
-## Стек
+## Tech stack
 
-| Слой | Инструмент | Назначение |
+| Layer | Tool | Purpose |
 |---|---|---|
-| Desktop | Tauri 2 | Нативное окно и связь интерфейса с Rust |
-| Backend | Rust | Сканирование, Git, настройки и управление процессами |
-| Frontend | React 18 + TypeScript | Панель проектов и просмотр логов |
-| Сборка | Vite | Разработка интерфейса и сборка статических ресурсов |
-| Git | Системная команда `git` | Чтение статуса, веток и истории, поддержка worktree |
-| Файловая система | notify + walkdir | Наблюдение за файлами и обход каталогов |
-| Иконки | Lucide | Иконки интерфейса |
+| Desktop | Tauri 2 | Native window and communication between the UI and Rust |
+| Backend | Rust | Scanning, Git, settings, and process management |
+| Frontend | React 18 + TypeScript | Project dashboard and log viewer |
+| Build | Vite | Frontend development and static asset builds |
+| Git | System `git` command | Status, branches, history, and worktree support |
+| File system | notify + walkdir | File watching and directory traversal |
+| Icons | Lucide | Interface icons |
 
 ---
 
-## Начало работы
+## Getting started
 
-Нужны Node.js 20.19+ или 22.12+, npm, актуальный стабильный Rust и Git в PATH, а также [системные зависимости Tauri](https://v2.tauri.app/start/prerequisites/)
+You need Node.js 20.19+ or 22.12+, npm, a current stable Rust toolchain, Git in PATH, and the [Tauri system prerequisites](https://v2.tauri.app/start/prerequisites/)
 
-На macOS установите Command Line Tools, если их ещё нет:
+On macOS, install Command Line Tools if needed:
 
 ```bash
 xcode-select --install
 ```
 
-Из папки проекта:
+From the project folder:
 
 ```bash
 npm install
 npm run desktop
 ```
 
-При первом запуске Cargo скачает и соберёт Rust-зависимости
+On the first run, Cargo downloads and builds the Rust dependencies
 
-1. Нажмите «Выбрать папку» и укажите директорию с проектами
-2. Выберите репозиторий, чтобы увидеть ветку, последний коммит и изменённые файлы
-3. Выберите обнаруженную команду проекта или введите свою, например `npm run dev`, `cargo run` или `python3 app.py`
-4. Нажмите «Запустить проект» и откройте вкладку «Логи»
+1. Click **Выбрать папку** (Choose folder) and select the directory containing your projects
+2. Select a repository to see its branch, latest commit, and changed files
+3. Choose a detected command or enter your own, such as `npm run dev`, `cargo run`, or `python3 app.py`
+4. Click **Запустить проект** (Run project) and open **Логи** (Logs)
 
-Обнаружение команд читает только файлы проекта и ничего не запускает. Выбор команды заполняет поле; для выполнения нажмите «Запустить проект»
+Command discovery only reads project files and does not run anything. Selecting a command fills the input; click **Запустить проект** to execute it
 
-Команда сохраняется при запуске; её также можно сохранить отдельно кнопкой с галочкой или клавишей Enter
+Commands are saved when launched; you can also save them using the checkmark button or Enter
 
-### Просмотр изменений
+### Viewing changes
 
-Во вкладке «Изменения» нажмите на файл, чтобы открыть diff
+Click a file in **Изменения** (Changes) to open its diff
 
-- «Рабочая папка» показывает изменения относительно индекса и содержимое новых файлов
-- «В индексе» показывает изменения, подготовленные к коммиту
-- Переименованные файлы сохраняют исходный и новый путь
-- Кнопка обновления перечитывает diff, Escape закрывает окно
+- **Рабочая папка** (Working tree) shows changes relative to the index and the contents of untracked files
+- **В индексе** (Staged) shows changes prepared for the next commit
+- Renamed files retain both their original and new paths
+- The refresh button reloads the diff, and Escape closes the dialog
 
-Открытый diff обновляется вместе с репозиторием при изменении файлов. Просмотр не меняет файлы и индекс; размер ограничен 256 КиБ или 4000 строк
+An open diff refreshes with the repository when files change. Viewing does not modify files or the index; previews are limited to 256 KiB or 4000 lines
 
-### Предпросмотр в браузере
+### Browser preview
 
 ```bash
 npm run dev
 ```
 
-Откройте `http://127.0.0.1:1420` для просмотра интерфейса с демонстрационными данными
+Open `http://127.0.0.1:1420` to preview the interface with demo data
 
-Доступ к папкам, открытие редактора и запуск команд доступны в desktop-приложении
+Folder access, opening editors, and running commands are available in the desktop app
 
-### Сборка
+### Building
 
 ```bash
 npm run build
 npm run tauri -- build
 ```
 
-Первая команда собирает интерфейс в `dist/`, вторая создаёт desktop-бинарник в `src-tauri/target/release/`
+The first command builds the frontend into `dist/`; the second creates the desktop binary in `src-tauri/target/release/`
 
-Создание установщиков пока отключено через `bundle.active` в конфигурации Tauri
+Installer creation is currently disabled through `bundle.active` in the Tauri configuration
 
 ---
 
-## Редактор и команды запуска
+## Editors and launch commands
 
-Откройте настройки кнопкой в боковой панели или сочетанием `⌘ ,` / `Ctrl ,`
+Open settings from the sidebar or with `⌘ ,` / `Ctrl ,`
 
-| Редактор | Команда в PATH |
+| Editor | Command in PATH |
 |---|---|
 | Visual Studio Code | `code` |
 | Cursor | `cursor` |
 | Zed | `zed` |
 | IntelliJ IDEA | `idea` |
 
-Для VS Code на macOS откройте палитру команд и выполните `Shell Command: Install 'code' command in PATH`
+For VS Code on macOS, open the command palette and run `Shell Command: Install 'code' command in PATH`
 
-Команды проекта выполняются в каталоге репозитория через `/bin/sh -c` на macOS/Linux или `cmd /C` на Windows. Доступные инструменты и переменные окружения наследуются от процесса RepoShelf
+Project commands run in the repository directory using `/bin/sh -c` on macOS/Linux or `cmd /C` on Windows. Tools and environment variables are inherited from the RepoShelf process
 
-Одновременно можно запустить несколько проектов, по одному процессу на репозиторий. Перед сменой рабочей папки нужно остановить запущенные проекты
+You can run several projects at once, with one process per repository. Stop running projects before changing the working folder
 
-Кнопка остановки завершает дерево процесса на Windows и группу процессов на macOS/Linux. При выходе из приложения управляемые процессы также завершаются
+The stop button terminates the process tree on Windows and the process group on macOS/Linux. Managed processes are also stopped when the app exits
 
 ---
 
-## Архитектура
+## Architecture
 
 ```text
 React / TypeScript
@@ -149,55 +151,55 @@ React / TypeScript
     | Tauri invoke
     v
 Rust
-    |-- walkdir -> репозитории и worktree
-    |-- git CLI -> статус, ветка, коммит, upstream
-    |-- notify -> события изменения файлов -> обновление панели
-    |-- процессы -> stdout / stderr -> события логов
-    '-- settings.json -> рабочая папка, команды, редактор, история
+    |-- walkdir -> repositories and worktrees
+    |-- git CLI -> status, branch, commit, upstream
+    |-- notify -> file changes -> dashboard refresh
+    |-- processes -> stdout / stderr -> log events
+    '-- settings.json -> working folder, commands, editor, history
 ```
 
-Операции сканирования, открытия редактора и запуска выполняются вне основного потока окна. Вывод процессов читается отдельными потоками
+Scanning, opening editors, and launching commands run outside the window's main thread. Process output is read by separate threads
 
-Интерфейс использует встроенный API Tauri через `withGlobalTauri`; JavaScript API поставляется вместе с Rust-частью приложения
+The frontend uses Tauri's built-in API through `withGlobalTauri`; the JavaScript API is shipped with the Rust application
 
-Git вызывается с `--no-optional-locks`, чтобы чтение статуса не создавало лишних блокировок индекса
+Git is called with `--no-optional-locks` to avoid unnecessary index locks when reading status
 
-Настройки находятся в системной папке конфигурации приложения `dev.reposhelf.desktop`, путь определяется Tauri. Запись проходит через временный файл и переименование
+Settings live in the system configuration folder for `dev.reposhelf.desktop`, with the path resolved by Tauri. Writes use a temporary file followed by a rename
 
 ---
 
-## Структура проекта
+## Project structure
 
 ```text
 RepoShelf/
 ├── src/
-│   ├── App.tsx                       - состояние панели и действия пользователя
+│   ├── App.tsx                       - dashboard state and user actions
 │   ├── components/
-│   │   ├── RepositoryCard.tsx         - карточка репозитория
-│   │   ├── RepositoryDetails.tsx      - подробности, команда и логи
-│   │   └── FileDiffDialog.tsx         - просмотр изменений файла
-│   ├── diff.ts                       - разбор строк unified diff
-│   ├── desktop.ts                    - типизированный доступ к встроенному API Tauri
-│   ├── demo.ts                       - данные браузерного предпросмотра
-│   ├── format.ts                     - относительное время
-│   ├── types.ts                      - типы данных
-│   └── styles.css                    - тема и адаптивная компоновка
+│   │   ├── RepositoryCard.tsx         - repository card
+│   │   ├── RepositoryDetails.tsx      - details, launch command, and logs
+│   │   └── FileDiffDialog.tsx         - file diff viewer
+│   ├── diff.ts                       - unified diff line parser
+│   ├── desktop.ts                    - typed access to the built-in Tauri API
+│   ├── demo.ts                       - browser preview data
+│   ├── format.ts                     - relative timestamps
+│   ├── types.ts                      - data types
+│   └── styles.css                    - theme and responsive layout
 ├── src-tauri/
 │   ├── src/
-│   │   ├── lib.rs                    - команды Tauri, настройки и наблюдение
-│   │   ├── commands.rs               - определение команд из файлов проекта
-│   │   ├── diff.rs                   - чтение diff и предпросмотр новых файлов
-│   │   ├── git.rs                    - сканирование и чтение Git
-│   │   └── runner.rs                 - процессы, остановка и потоковые логи
-│   ├── capabilities/default.json     - разрешения окна
-│   └── tauri.conf.json               - конфигурация desktop-приложения
-├── tests/ui.test.mjs                  - проверки интерфейса
+│   │   ├── lib.rs                    - Tauri commands, settings, and file watching
+│   │   ├── commands.rs               - command discovery from project files
+│   │   ├── diff.rs                   - diff loading and untracked file previews
+│   │   ├── git.rs                    - repository scanning and Git queries
+│   │   └── runner.rs                 - processes, termination, and streamed logs
+│   ├── capabilities/default.json     - window permissions
+│   └── tauri.conf.json               - desktop app configuration
+├── tests/ui.test.mjs                  - UI tests
 └── vite.config.ts
 ```
 
 ---
 
-## Проверки
+## Checks
 
 ```bash
 npm run check
@@ -206,34 +208,35 @@ npm run test:rust
 cargo fmt --manifest-path src-tauri/Cargo.toml --check
 ```
 
-Проверки интерфейса запускают собранное приложение в jsdom и проверяют поиск, фильтрацию, выбор проекта, настройки, горячие клавиши, выбор команд, восстановление состояния процессов после перезагрузки интерфейса, переключение источников diff, номера строк, обработку ошибок и ограничения браузерного режима
+UI tests run the built app in jsdom and check search, filtering, project selection, settings, shortcuts, command selection, running process restoration after a UI reload, diff source switching, line numbers, error handling, and browser mode restrictions
 
-Rust-тесты создают временные Git-репозитории и проверяют пустую историю, новые и изменённые файлы, коммиты, переименования с пробелами, worktree и исключение каталогов зависимостей, определение команд, stdout/stderr, код завершения, остановку дочерних процессов и чтение diff для новых, переименованных, удалённых и бинарных файлов
-
----
-
-## Ограничения MVP
-
-- Одна рабочая папка за раз; команды и история сохраняются при её смене
-- Обход ограничен 5 уровнями и не следует по символическим ссылкам
-- Вложенные репозитории внутри другого репозитория и submodule отдельно не показываются
-- Каталоги `.git`, `node_modules`, `target`, `.venv`, `dist` и `vendor` исключены из обхода
-- Нет операций commit, push, pull и переключения веток
-- Diff ограничен 256 КиБ или 4000 строк; для бинарных файлов отображается сообщение без текстового содержимого
-- Diff отображает текст в UTF-8; некорректные последовательности байтов заменяются символом замены
-- Не настроены установщики, подпись приложения и автоматические обновления
-- Терминал показывает текстовый вывод без эмуляции TTY; интерактивные команды не поддерживаются
-- Логи хранятся в памяти, управляющие последовательности терминала не интерпретируются
-- Показатели ahead/behind рассчитываются по локальному upstream без автоматического fetch
-- Команды, которые создают отдельную сессию и отсоединяются от родительского процесса, могут пережить остановку проекта
+Rust tests create temporary Git repositories and cover empty history, untracked and modified files, commits, renames with spaces, worktrees, dependency directory exclusions, command discovery, stdout/stderr, exit codes, child process termination, and diffs for new, renamed, deleted, and binary files
 
 ---
 
-## Дальше
+## MVP limitations
 
-- [ ] Несколько рабочих папок
-- [x] Автоматическое определение доступных команд из `package.json` и `Cargo.toml`
-- [x] Подробный diff изменённых файлов
-- [ ] Ссылки на локальные серверы запущенных проектов
-- [ ] Сохранение логов на диск
-- [ ] Сборки и установщики для macOS, Windows и Linux
+- One working folder at a time; commands and history are kept when switching folders
+- Scanning is limited to 5 levels and does not follow symbolic links
+- Nested repositories and submodules inside another repository are not listed separately
+- `.git`, `node_modules`, `target`, `.venv`, `dist`, and `vendor` are excluded from scanning
+- No commit, push, pull, or branch switching operations
+- Diffs are limited to 256 KiB or 4000 lines; binary files show a message without text content
+- Diffs display UTF-8 text; invalid byte sequences are replaced with the replacement character
+- Installers, code signing, and automatic updates are not configured
+- The log viewer displays text without TTY emulation; interactive commands are not supported
+- Logs are held in memory, and terminal control sequences are not interpreted
+- Ahead/behind counts use the local upstream reference without automatic fetch
+- Commands that create a separate session and detach from their parent may survive a project stop
+- The application interface is currently in Russian; README translations do not change the UI language
+
+---
+
+## Roadmap
+
+- [ ] Multiple working folders
+- [x] Detect available commands from `package.json` and `Cargo.toml`
+- [x] Detailed diffs for changed files
+- [ ] Links to local servers for running projects
+- [ ] Save logs to disk
+- [ ] Builds and installers for macOS, Windows, and Linux
