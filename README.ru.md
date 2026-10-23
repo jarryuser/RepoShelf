@@ -11,7 +11,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
-[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
+[English](README.md) · [Українська](README.uk.md) · **Русский** · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
 
 </div>
 

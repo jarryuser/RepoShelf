@@ -11,7 +11,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
-[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
+[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · **Deutsch**
 
 </div>
 
@@ -79,21 +79,21 @@ npm run desktop
 
 Beim ersten Start lädt Cargo die Rust-Abhängigkeiten herunter und kompiliert sie
 
-1. Klicke auf **Выбрать папку** (Ordner auswählen) und wähle das Verzeichnis mit deinen Projekten
+1. Klicke auf **Ordner auswählen** und wähle das Verzeichnis mit deinen Projekten
 2. Wähle ein Repository aus, um Branch, letzten Commit und geänderte Dateien zu sehen
 3. Wähle einen erkannten Projektbefehl oder gib einen eigenen ein, etwa `npm run dev`, `cargo run` oder `python3 app.py`
-4. Klicke auf **Запустить проект** (Projekt starten) und öffne **Логи** (Logs)
+4. Klicke auf **Projekt starten** und öffne **Logs**
 
-Die Befehlserkennung liest nur Projektdateien und führt nichts aus. Die Auswahl eines Befehls füllt das Eingabefeld; zum Ausführen klickst du auf **Запустить проект**
+Die Befehlserkennung liest nur Projektdateien und führt nichts aus. Die Auswahl eines Befehls füllt das Eingabefeld; zum Ausführen klickst du auf **Projekt starten**
 
 Befehle werden beim Start gespeichert; alternativ kannst du die Schaltfläche mit dem Häkchen oder Enter verwenden
 
 ### Änderungen ansehen
 
-Klicke unter **Изменения** (Änderungen) auf eine Datei, um den Diff zu öffnen
+Klicke unter **Änderungen** auf eine Datei, um den Diff zu öffnen
 
-- **Рабочая папка** (Arbeitsverzeichnis) zeigt Änderungen gegenüber dem Index und den Inhalt unversionierter Dateien
-- **В индексе** (Im Index) zeigt die für den nächsten Commit vorgemerkten Änderungen
+- **Arbeitsverzeichnis** zeigt Änderungen gegenüber dem Index und den Inhalt unversionierter Dateien
+- **Im Index** zeigt die für den nächsten Commit vorgemerkten Änderungen
 - Bei umbenannten Dateien bleiben der ursprüngliche und der neue Pfad sichtbar
 - Die Schaltfläche zum Aktualisieren lädt den Diff neu, Escape schließt das Fenster
 

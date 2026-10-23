@@ -11,7 +11,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
-[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
+[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · **Slovenčina** · [Deutsch](README.de.md)
 
 </div>
 
@@ -79,21 +79,21 @@ npm run desktop
 
 Pri prvom spustení Cargo stiahne a zostaví závislosti Rustu
 
-1. Kliknite na **Выбрать папку** (Vybrať priečinok) a zvoľte adresár s projektmi
+1. Kliknite na **Vybrať priečinok** a zvoľte adresár s projektmi
 2. Vyberte repozitár a zobrazte jeho vetvu, posledný commit a zmenené súbory
 3. Vyberte rozpoznaný príkaz alebo zadajte vlastný, napríklad `npm run dev`, `cargo run` alebo `python3 app.py`
-4. Kliknite na **Запустить проект** (Spustiť projekt) a otvorte kartu **Логи** (Logy)
+4. Kliknite na **Spustiť projekt** a otvorte kartu **Logy**
 
-Rozpoznávanie príkazov iba číta súbory projektu a nič nespúšťa. Výber príkazu vyplní vstupné pole; na jeho vykonanie kliknite na **Запустить проект**
+Rozpoznávanie príkazov iba číta súbory projektu a nič nespúšťa. Výber príkazu vyplní vstupné pole; na jeho vykonanie kliknite na **Spustiť projekt**
 
 Príkaz sa uloží pri spustení; môžete ho uložiť aj samostatne tlačidlom so začiarknutím alebo klávesom Enter
 
 ### Prezeranie zmien
 
-Na karte **Изменения** (Zmeny) kliknite na súbor a otvorte diff
+Na karte **Zmeny** kliknite na súbor a otvorte diff
 
-- **Рабочая папка** (Pracovný adresár) zobrazuje zmeny oproti indexu a obsah nesledovaných súborov
-- **В индексе** (V indexe) zobrazuje zmeny pripravené na commit
+- **Pracovný adresár** zobrazuje zmeny oproti indexu a obsah nesledovaných súborov
+- **V indexe** zobrazuje zmeny pripravené na commit
 - Premenované súbory si zachovávajú pôvodnú aj novú cestu
 - Tlačidlo obnovenia načíta diff znova, Escape zatvorí okno
 

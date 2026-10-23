@@ -11,7 +11,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
-[English](README.md) · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
+**English** · [Українська](README.uk.md) · [Русский](README.ru.md) · [Slovenčina](README.sk.md) · [Deutsch](README.de.md)
 
 </div>
 
@@ -79,21 +79,21 @@ npm run desktop
 
 On the first run, Cargo downloads and builds the Rust dependencies
 
-1. Click **Выбрать папку** (Choose folder) and select the directory containing your projects
+1. Click **Choose folder** and select the directory containing your projects
 2. Select a repository to see its branch, latest commit, and changed files
 3. Choose a detected command or enter your own, such as `npm run dev`, `cargo run`, or `python3 app.py`
-4. Click **Запустить проект** (Run project) and open **Логи** (Logs)
+4. Click **Run project** and open **Logs**
 
-Command discovery only reads project files and does not run anything. Selecting a command fills the input; click **Запустить проект** to execute it
+Command discovery only reads project files and does not run anything. Selecting a command fills the input; click **Run project** to execute it
 
 Commands are saved when launched; you can also save them using the checkmark button or Enter
 
 ### Viewing changes
 
-Click a file in **Изменения** (Changes) to open its diff
+Click a file in **Changes** to open its diff
 
-- **Рабочая папка** (Working tree) shows changes relative to the index and the contents of untracked files
-- **В индексе** (Staged) shows changes prepared for the next commit
+- **Working tree** shows changes relative to the index and the contents of untracked files
+- **Staged** shows changes prepared for the next commit
 - Renamed files retain both their original and new paths
 - The refresh button reloads the diff, and Escape closes the dialog
 
